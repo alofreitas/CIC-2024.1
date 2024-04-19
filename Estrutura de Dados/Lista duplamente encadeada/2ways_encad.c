@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Estrutura dada na questão - dados dos atletas
+// Estrutura dada na questão - dados 
 struct Sequencia
 {
     int valor;
@@ -36,7 +36,7 @@ Pno Insere_Final(Pno *lista, int num)
     return new;
 }
 
-// Função para calcular a soma dos elementos das listas e retornar uma nova lista
+// Função para calcular a soma dos elementos das listas e retornar o ultimo elemento lista
 Pno Soma(Pno *lista, Pno *fim)
 {
     int num = 0;
