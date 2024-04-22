@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Estrutura dada na questão - dados 
+// Estrutura dada na questão - dados
 struct Sequencia
 {
     int valor;
@@ -12,7 +12,7 @@ struct Sequencia
 typedef struct Sequencia No;
 typedef struct Sequencia *Pno;
 
-// Função para inserir um novo elemento no final da lista
+// Função para inserir um novo elemento no final da lista (slide)
 Pno Insere_Final(Pno *lista, int num)
 {
     Pno new = (Pno)malloc(sizeof(No));
@@ -43,7 +43,6 @@ Pno Soma(Pno *lista, Pno *fim)
     Pno new = NULL;
     Pno atual = *lista;
     Pno atual2 = *fim;
-    atual2 = atual2->ant;
 
     // Enquanto houver elementos em ambas as listas
     while (atual != NULL && atual2 != NULL)
@@ -61,52 +60,57 @@ Pno Soma(Pno *lista, Pno *fim)
 int main(void)
 {
     int n;
-    Pno lista = NULL;
-    Pno lista2 = NULL;
-
     // Pegando os dados do usuário
     printf("num: \n");
     scanf("%d", &n);
-    if (n == 0)
+    while (n != 0)
     {
-        exit(1);
-    }
-    int num[n];
-    int num2[n];
+        Pno lista = NULL;
+        Pno lista2 = NULL;
+        if (n == 0)
+        {
+            exit(1);
+        }
+        int num[n];
+        int num2[n];
 
-    // Lendo e inserindo elementos na primeira lista
-    printf("num: ");
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &num[i]);
-        Insere_Final(&lista, num[i]);
-    }
+        // Lendo e inserindo elementos na primeira lista
+        printf("num: ");
+        for (int i = 0; i < n; i++)
+        {
+            scanf("%d", &num[i]);
+            Insere_Final(&lista, num[i]);
+        }
 
-    // Lendo e inserindo elementos na segunda lista
-    printf("num: ");
-    Pno fim = NULL;
-    for (int i = 0; i < n; i++)
-    {
+        // Lendo e inserindo elementos na segunda lista
+        printf("num: ");
+        Pno fim = NULL;
+        for (int i = 0; i < n; i++)
+        {
+            if (i + 1 == n)
+            {
+                scanf("%d", &num2[i]);
+                fim = Insere_Final(&lista2, num2[i]);
+                break;
+            }
+
             scanf("%d", &num2[i]);
             Insere_Final(&lista2, num2[i]);
-        if (i + 1 == n)
-            fim = Insere_Final(&lista2, num2[i]);
-    }    
+        }
 
-    // Calculando a soma e armazenando o resultado em uma nova lista
-    Pno new = Soma(&lista,&fim);
+        Pno new = Soma(&lista, &fim);
 
-    // Imprimindo a soma dos elementos das listas
-    Pno temp = new;
-    while (temp != NULL)
-    {
-        printf("%d ", temp->valor);
-        temp = temp->prox;
+        // Imprimindo a soma dos elementos das listas
+        Pno temp = new;
+        while (temp != NULL)
+        {
+            printf("%d ", temp->valor);
+            temp = temp->prox;
+        }
+        printf("\n");
+
+        scanf("%d", &n);
     }
-
-    printf("\n");
-
-    scanf("%d", &n);
 
     return 0;
 }
