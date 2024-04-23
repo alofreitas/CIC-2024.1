@@ -47,11 +47,11 @@ Pno Soma(Pno *lista, Pno *fim)
     // Enquanto houver elementos em ambas as listas
     while (atual != NULL && atual2 != NULL)
     {
-        num = atual->valor + atual2->valor;
+        num = atual->valor + atual2->valor; // Soma dos valores
         printf("Soma de %d + %d é : %d\n", atual->valor, atual2->valor, num);
-        Insere_Final(&new, num);
-        atual2 = atual2->ant;
-        atual = atual->prox;
+        Insere_Final(&new, num); // Inserir na nova lista o valor da soma
+        atual2 = atual2->ant; // O atual da segunda lista aponta para o anterior
+        atual = atual->prox; // O atual da primeira lista aponta para o próximo
     }
 
     return new;
@@ -63,8 +63,9 @@ int main(void)
     // Pegando os dados do usuário
     printf("num: \n");
     scanf("%d", &n);
-    while (n != 0)
+    while (n != 0) // Enquanto n for diferente de 0, para possibilitar ler mais de uma entrada
     {
+        // Inicializar as listas como vazia
         Pno lista = NULL;
         Pno lista2 = NULL;
         if (n == 0)
@@ -87,7 +88,7 @@ int main(void)
         Pno fim = NULL;
         for (int i = 0; i < n; i++)
         {
-            if (i + 1 == n)
+            if (i + 1 == n) // Se for o ultimo elemento
             {
                 scanf("%d", &num2[i]);
                 fim = Insere_Final(&lista2, num2[i]);
@@ -97,7 +98,8 @@ int main(void)
             scanf("%d", &num2[i]);
             Insere_Final(&lista2, num2[i]);
         }
-
+        
+        // Chamada da função
         Pno new = Soma(&lista, &fim);
 
         // Imprimindo a soma dos elementos das listas
