@@ -1,0 +1,11 @@
+QUESTÃO 2
+Resposta:
+Cria o struct com o valor do elemento e o ponteiro para o próximo
+A função recebe um ponteiro para o inicio do tipo Pno e retorna um inteiro
+Cria um ponteiro que aponta para a mesma posição que o parametro
+Se o ponteiro for diferente de NULL, ou seja, se houver algum elemento na lista, percorreremos a lista.
+Se o valor do próximo elemento for maior que o elemento atual, a função retornará 0
+Se não passará para o próximo elemento e fará a verificação novamente até que o ponteiro para o próximo seja diferente de NULL.
+Se essa condição for falsa até o final do while, a função retornará 1.
+Pelos passos aqui explicados, percebemos que a função busca identificar se a lista apresentada está na ordem crescente de valor dos elementos. Se sim, retornará 1.
+

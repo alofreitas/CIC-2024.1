@@ -1,0 +1,7 @@
+a.prox = inicio;
+while(inicio.prox!=a)
+inicio = inicio->prox;
+while (a.ant != NULL){
+    a = a.ant
+}
+
